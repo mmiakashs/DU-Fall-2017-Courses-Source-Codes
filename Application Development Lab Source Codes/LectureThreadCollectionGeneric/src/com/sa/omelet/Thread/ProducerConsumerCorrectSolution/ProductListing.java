@@ -5,13 +5,14 @@ class ProductListing {
   boolean valueSet = false;
 
   synchronized int get() {
-    while(!valueSet)
+    while(!valueSet) {
       try {
         wait();
 
-      } catch(InterruptedException e) {
+      } catch (InterruptedException e) {
         System.out.println("InterruptedException caught");
       }
+    }
 
       System.out.println("Got: " + n);
       valueSet = false;
@@ -20,12 +21,13 @@ class ProductListing {
   }
 
   synchronized void put(int n) {
-    while(valueSet)
-      try {
-        wait();
-      } catch(InterruptedException e) {
-        System.out.println("InterruptedException caught");
-      }
+    while(valueSet) {
+        try {
+            wait();
+        } catch (InterruptedException e) {
+            System.out.println("InterruptedException caught");
+        }
+    }
 
       this.n = n;
       valueSet = true;

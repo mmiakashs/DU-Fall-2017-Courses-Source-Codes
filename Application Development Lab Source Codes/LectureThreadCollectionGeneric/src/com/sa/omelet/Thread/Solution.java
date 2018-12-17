@@ -11,6 +11,11 @@ public class Solution {
 //        System.out.println(mainThread);
 //        System.out.println(mainThread.getName());
 
+        int num=10;
+        Integer in = new Integer(10);
+        in = num;
+        num = in;
+
         Counter counter = new Counter();
         counter.total=0;
 

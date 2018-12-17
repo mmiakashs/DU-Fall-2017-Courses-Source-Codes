@@ -13,7 +13,7 @@ public class MyThread extends Thread{
         super(name);
         this.start = start;
         this.end = end;
-        this.counter = new Counter();
+        this.counter = counter;
     }
 
     @Override
@@ -21,9 +21,9 @@ public class MyThread extends Thread{
 
         for(;start<end; start++) {
             if(start%2==0){
-                //synchronized (counter) {
-                counter.total++;
-                //}
+//                synchronized (counter) {
+                   counter.total++;
+//                }
             }
         }
     }
